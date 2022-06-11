@@ -29,11 +29,6 @@ JavaScriptni HTML-ga ulashni ikkita usuli mavjud bular:
 
 JavaScript fayl kenhaytmasi "js"
 
-                                            Console nima
-Agar biz kod yozib xato qilgan bo'lsak bu xatoni bilmasligimiz mumkin va script ishlamasa boshimiz qotib qoladi. Shuning uchun bizga Console kerak. Console bizga qaysi faylda qaysi qatorda xato qilayotganimzni aniqlab beruvchi vosita. 
-Agar siz Google Chrome ishlatsangiz siz F12 tugmasi orqali ochishingiz mumkin (Windows OS-da), agar Mac OS-da bo'lsangiz Cmd+Opt+J tugmalarini bosing. 
-Boshqa yo'li ham bor, sichqonchaning saytga olib borasiz va o'ng tugmasini bosasiz, menyudan "Inspect" ni tanlaysiz. 
-
                                         O'zgaruvchilar
 O'zgaruvchi deb o'zida ma'lumotlarni saqlovchi muhitga aytiladi. 
 Ularni uch turi mavjud: 
