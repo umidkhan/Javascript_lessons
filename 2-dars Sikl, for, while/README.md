@@ -68,7 +68,7 @@ Bu shunday korinadi:
 for (begin; condition; step) {
   // ... loop tanasi ...
 }
-Keling, ushbu qismlarning manosini misol orqali bilib olaylik. Quyidagi tsikl dan gacha (lekin shu jumladan emas) alert(i)uchun ishlaydi : i 0 3
+Keling, ushbu qismlarning manosini misol orqali bilib olaylik. Quyidagi loop dan gacha (lekin shu jumladan emas) alert(i)uchun ishlaydi : i 0 3
 
 for (let i = 0; i < 3; i++) { // 0, keyin 1, keyin 2 ni ko'rsatadi
   alert(i);
@@ -78,10 +78,10 @@ Keling, forbayonotni qisman korib chiqamiz:
 
 qismi		
 boshlanishi	let i = 0	Loopga kirgandan keyin bir marta bajariladi.
-holat	i < 3	Har bir sikl iteratsiyasidan oldin tekshiriladi. Agar noto'g'ri bolsa, tsikl toxtaydi.
+holat	i < 3	Har bir sikl iteratsiyasidan oldin tekshiriladi. Agar noto'g'ri bolsa, loop toxtaydi.
 tanasi	alert(i)	Vaziyat haqiqat bolganda qayta-qayta ishlaydi.
 qadam	i++	Har bir iteratsiyada tanadan keyin bajariladi.
-Umumiy tsikl algoritmi quyidagicha ishlaydi:
+Umumiy loop algoritmi quyidagicha ishlaydi:
 
 Run begin
 → (agar vaziyat → tanani yugurish va qadamni yugurish)
@@ -107,7 +107,7 @@ if (i < 3) { alert(i); i++ }
 // ...tugatish kerak, chunki endi i == 3
 
 Inline o'zgaruvchilar deklaratsiyasi
-Bu erda "hisoblagich" o'zgaruvchisi ito'g'ridan-to'g'ri tsiklda e'lon qilinadi. Bu "inline" o'zgaruvchilar deklaratsiyasi deb ataladi. Bunday o'zgaruvchilar faqat tsikl ichida ko'rinadi.
+Bu erda "hisoblagich" o'zgaruvchisi ito'g'ridan-to'g'ri loopda e'lon qilinadi. Bu "inline" o'zgaruvchilar deklaratsiyasi deb ataladi. Bunday o'zgaruvchilar faqat loop ichida ko'rinadi.
 
 for (let i = 0; i < 3; i++) {
   alert(i); // 0, 1, 2
@@ -125,7 +125,7 @@ alert(i); // 3, ko'rinadigan, chunki loopdan tashqarida elon qilingan
 Qismlarni o'tkazib yuborish
 Har qanday qismini foro'tkazib yuborish mumkin.
 
-Misol uchun, beginagar tsikl boshlanishida hech narsa qilish kerak bo'lmasa, o'tkazib yuborishimiz mumkin.
+Misol uchun, beginagar loop boshlanishida hech narsa qilish kerak bo'lmasa, o'tkazib yuborishimiz mumkin.
 
 Bu yerdagi kabi:
 
@@ -151,11 +151,11 @@ for (;;) {
 E'tibor bering, ikkita nuqta- forvergul ;bo'lishi kerak. Aks holda, sintaksis xatosi bo'ladi.
 
                       Breaking the loop (loopni to'xtatish)
-Odatda, tsikl noto'g'ri holatga kelganda chiqadi.
+Odatda, loop noto'g'ri holatga kelganda chiqadi.
 
 Lekin biz istalgan vaqtda maxsus breakdirektiva yordamida chiqishni majburlashimiz mumkin.
 
-Misol uchun, quyidagi tsikl foydalanuvchidan raqamlar qatorini so'raydi, hech qanday raqam kiritilmaganda "buziladi":
+Misol uchun, quyidagi loop foydalanuvchidan raqamlar qatorini so'raydi, hech qanday raqam kiritilmaganda "buziladi":
 
 let sum = 0;
 
@@ -169,17 +169,17 @@ while (true) {
 
 }
 alert( 'Sum: ' + sum );
-Agar foydalanuvchi bo'sh qatorga kirsa yoki kiritishni bekor qilsa, breakdirektiv satrda faollashadi . (*)U tsiklni zudlik bilan to'xtatadi, boshqaruvni tsikldan keyingi birinchi qatorga o'tkazadi. Ya'ni, alert.
+Agar foydalanuvchi bo'sh qatorga kirsa yoki kiritishni bekor qilsa, breakdirektiv satrda faollashadi . (*)U loopni zudlik bilan to'xtatadi, boshqaruvni loopdan keyingi birinchi qatorga o'tkazadi. Ya'ni, alert.
 
 "Cheksiz halqa + break kerak bo'lganda" kombinatsiyasi pastadir holatini halqaning boshida yoki oxirida emas, balki uning o'rtasida yoki hatto tanasining bir nechta joylarida tekshirish kerak bo'lgan holatlar uchun juda mos keladi.
 
                   Keyingi iteretsiyaga o'ting
 
-Direktiv ning continue"engilroq versiyasi" dir break. Bu butun tsiklni to'xtatmaydi. Buning o'rniga, u joriy iteratsiyani to'xtatadi va loop yangisini boshlashga majbur qiladi (agar shart imkon bersa).
+Direktiv ning continue"engilroq versiyasi" dir break. Bu butun loop to'xtatmaydi. Buning o'rniga, u joriy iteratsiyani to'xtatadi va loop yangisini boshlashga majbur qiladi (agar shart imkon bersa).
 
 Agar joriy iteratsiyani tugatib, keyingisiga o‘tmoqchi bo‘lsak, undan foydalanishimiz mumkin.
 
-Quyidagi tsikl continuefaqat toq qiymatlarni chiqarish uchun ishlatiladi:
+Quyidagi loop continuefaqat toq qiymatlarni chiqarish uchun ishlatiladi:
 
 for (let i = 0; i < 10; i++) {
 
