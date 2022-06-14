@@ -11,14 +11,14 @@ Loop quyidagi while sintaksisga ega:
 
 while (condition) {
   // code
-  // so-called "loop body"
+  // "halqa tanasi" deb ataladi
 }
 Shart true bolsa-da, loop tanasidan kod bajariladi
 
 Masalan, pastdagi sikl iwhile ni chiqaradi i < 3:
 
 let i = 0;
-while (i < 3) { // shows 0, then 1, then 2
+while (i < 3) { // 0, 
   alert( i );
   i++;
 }
@@ -32,7 +32,7 @@ Har qanday ifoda yoki ozgaruvchi shunchaki taqqoslash emas, balki loop sharti bo
 Masalan, yozishning qisqaroq while (i != 0)usuli while (i):
 
 let i = 3;
-while (i) { // when i becomes 0, the condition becomes falsy, and the loop stops
+while (i) { // i 0 bo'lganda, shart noto'g'ri bo'ladi va loop to'xtaydi
   alert( i );
   i--;
 }
@@ -47,7 +47,7 @@ do...while sintaksisi
 Shartni tekshirish sintaksisi yordamida pastadir tanasi ostiga otkazilishi mumkin: do...while
 
 do {
-  // loop body
+  // loop tanasi
 } while (condition);
 Loop avval tanani bajaradi, songra holatni tekshiradi va haqiqat bolsa ham, uni qayta-qayta bajaradi.
 
@@ -66,11 +66,11 @@ forLoop murakkabroq, lekin ayni paytda eng kop ishlatiladigan halqadir .
 Bu shunday korinadi:
 
 for (begin; condition; step) {
-  // ... loop body ...
+  // ... loop tanasi ...
 }
 Keling, ushbu qismlarning manosini misol orqali bilib olaylik. Quyidagi tsikl dan gacha (lekin shu jumladan emas) alert(i)uchun ishlaydi : i 0 3
 
-for (let i = 0; i < 3; i++) { // shows 0, then 1, then 2
+for (let i = 0; i < 3; i++) { // 0, keyin 1, keyin 2 ni ko'rsatadi
   alert(i);
 }
 
@@ -84,9 +84,9 @@ qadam	i++	Har bir iteratsiyada tanadan keyin bajariladi.
 Umumiy tsikl algoritmi quyidagicha ishlaydi:
 
 Run begin
-→ (if condition → run body and run step)
-→ (if condition → run body and run step)
-→ (if condition → run body and run step)
+→ (agar vaziyat → tanani yugurish va qadamni yugurish)
+→ (agar vaziyat → tanani yugurish va qadamni yugurish)
+→ (agar vaziyat → tanani yugurish va qadamni yugurish)
 → ...
 Yani, beginbir marta bajariladi va keyin takrorlanadi: har bir conditionsinovdan keyin bodyva stepbajariladi.
 
@@ -96,15 +96,15 @@ Bizning holatimizda aynan nima sodir bo'ladi:
 
 // for (let i = 0; i < 3; i++) alert(i)
 
-// run begin
+// ishga tushirish
 let i = 0
-// if condition → run body and run step
+// agar shart → tanani ishga tushiring va qadamni bajaring
 if (i < 3) { alert(i); i++ }
-// if condition → run body and run step
+// agar shart → tanani ishga tushiring va qadamni bajaring
 if (i < 3) { alert(i); i++ }
-// if condition → run body and run step
+// agar shart → tanani ishga tushiring va qadamni bajaring
 if (i < 3) { alert(i); i++ }
-// ...finish, because now i == 3
+// ...tugatish kerak, chunki endi i == 3
 
 Inline o'zgaruvchilar deklaratsiyasi
 Bu erda "hisoblagich" o'zgaruvchisi ito'g'ridan-to'g'ri tsiklda e'lon qilinadi. Bu "inline" o'zgaruvchilar deklaratsiyasi deb ataladi. Bunday o'zgaruvchilar faqat tsikl ichida ko'rinadi.
@@ -150,5 +150,43 @@ for (;;) {
 }
 E'tibor bering, ikkita nuqta- forvergul ;bo'lishi kerak. Aks holda, sintaksis xatosi bo'ladi.
 
+                      Breaking the loop (loopni to'xtatish)
+Odatda, tsikl noto'g'ri holatga kelganda chiqadi.
 
+Lekin biz istalgan vaqtda maxsus breakdirektiva yordamida chiqishni majburlashimiz mumkin.
+
+Misol uchun, quyidagi tsikl foydalanuvchidan raqamlar qatorini so'raydi, hech qanday raqam kiritilmaganda "buziladi":
+
+let sum = 0;
+
+while (true) {
+
+  let value = +prompt("Enter a number", '');
+
+  if (!value) break; // (*)
+
+  sum += value;
+
+}
+alert( 'Sum: ' + sum );
+Agar foydalanuvchi bo'sh qatorga kirsa yoki kiritishni bekor qilsa, breakdirektiv satrda faollashadi . (*)U tsiklni zudlik bilan to'xtatadi, boshqaruvni tsikldan keyingi birinchi qatorga o'tkazadi. Ya'ni, alert.
+
+"Cheksiz halqa + break kerak bo'lganda" kombinatsiyasi pastadir holatini halqaning boshida yoki oxirida emas, balki uning o'rtasida yoki hatto tanasining bir nechta joylarida tekshirish kerak bo'lgan holatlar uchun juda mos keladi.
+
+                  Keyingi iteretsiyaga o'ting
+
+Direktiv ning continue"engilroq versiyasi" dir break. Bu butun tsiklni to'xtatmaydi. Buning o'rniga, u joriy iteratsiyani to'xtatadi va loop yangisini boshlashga majbur qiladi (agar shart imkon bersa).
+
+Agar joriy iteratsiyani tugatib, keyingisiga o‘tmoqchi bo‘lsak, undan foydalanishimiz mumkin.
+
+Quyidagi tsikl continuefaqat toq qiymatlarni chiqarish uchun ishlatiladi:
+
+for (let i = 0; i < 10; i++) {
+
+  // if true, skip the remaining part of the body
+  if (i % 2 == 0) continue;
+
+  alert(i); // 1, then 3, 5, 7, 9
+}
+ning juft qiymatlari iuchun continuedirektiv tanani bajarishni to'xtatadi va boshqaruvni keyingi iteratsiyaga o'tkazadi for(keyingi raqam bilan). Shunday qilib alert, faqat g'alati qiymatlar uchun chaqiriladi.
 ```
